@@ -1,0 +1,1 @@
+select CONCAT_WS('', Mgr.Fname,' ',Mgr.Minit,' ',Mgr.Lname) AS Full_name,Mgr.Ssn,COUNT(Emp.Ssn) as Dept_number_of_employees,Mgr.Dno as Dept_Id from EMPLOYEE Emp JOIN EMPLOYEE Mgr on Emp.Super_SSn=Mgr.Ssn GROUP BY Mgr.Ssn, Mgr.Fname,Mgr.Minit,Mgr.Lname ORDER BY Full_name ASC;

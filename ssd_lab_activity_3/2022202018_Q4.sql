@@ -1,0 +1,1 @@
+select DEPARTMENT.Dnumber as Dept_ID,Dname as Dept_name,COUNT(Dlocation) as Number_of_locations from DEPARTMENT inner join DEPT_LOCATIONS inner join (select Essn,COUNT(SEX) as Females from DEPENDENT group by Essn) b on DEPARTMENT.Dnumber= DEPT_LOCATIONS.Dnumber and b.Essn=Mgr_ssn WHERE b.Females>1 GROUP BY DEPARTMENT.Dnumber,Dname;
