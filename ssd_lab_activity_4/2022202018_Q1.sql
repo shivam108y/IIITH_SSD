@@ -1,0 +1,13 @@
+DELIMITER $$
+CREATE PROCEDURE `ADD_NUM`(
+	IN `num1` INT,
+	IN `num2` INT,
+	OUT `Result` INT
+)
+BEGIN
+	Set Result = num1 + num2;
+END $$
+DELIMITER ;
+
+Call ADD_NUM(20,30,@RES);
+SELECT @RES;
