@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<header>
+    <title>Student Data</title>
+    <h1>
+        Student Data
+        <link rel="stylesheet" href="./style.css">
+    </h1>
+</header>
+<body>
+    <div class="records_content" >  
+        <div class="container">
+            <label for="roll" ><b>Roll No.</b></label>
+            <input id="roll" type="text" placeholder="Enter Roll no." name="roll" required>
+      
+            <label for="std_name"><b>Student Name</b></label>
+            <input id="name" type="text" placeholder="Enter Student name" name="std_name" required>
+          
+          <button onclick="myCreateFunction()">New Add</button>
+          <button class="delete" onclick="myDeleteFunction()">Delete Last Record</button>
+        
+    </div>
+    <br>
+    <br>
+    <table id="studentTable">
+        <tr>
+          <th>Roll No</th>
+          <th>Student Name</th>
+        </tr>
+    </table>
+    </div>
+</body>
+<script>
+    function myCreateFunction() {
+      var table = document.getElementById("studentTable");
+      document.getElementById("name").value;
+      var row = table.insertRow(1);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      cell1.innerHTML = document.getElementById("roll").value;
+      cell2.innerHTML = document.getElementById("name").value;
+      document.getElementById("roll").value="";
+      document.getElementById("name").value="";
+    }
+    
+    function myDeleteFunction() {
+      document.getElementById("studentTable").deleteRow(1);
+    }
+</script>

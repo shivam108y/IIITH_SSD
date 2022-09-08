@@ -1,0 +1,78 @@
+body {
+    text-align:center;
+    background:rgb(221, 208, 208) 20%
+  }
+
+  input {
+    border: 2px solid black;
+    border-radius: 4px;
+    /* width: 20%; */
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    font-family: Arial;
+  }
+  .container{
+    text-align:center;
+    box-shadow: 5px 10px #888888;
+    border-radius: 50px ;
+    background: grey 100%;
+    padding: 20px; 
+    width: 500px;
+    height: 300px; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  button {
+    background-color: #066d47;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+  }
+  .delete{
+    background-color: #c52e08;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+  }
+
+  table,
+td{
+  border: 1px solid black;
+  padding:5px;
+  border-collapse:collapse;
+}
+  table {
+    border-collapse: separate;
+    border-spacing: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width=50%;
+}
+th{
+    background-color: blueviolet;
+}
+tr {
+    padding: 10px 0;
+    border-bottom: 1pt solid black;
+    border: 1px solid black;
+  }
+
+  col:nth-child(odd) {
+    background:red;
+  }
+  
+  col:nth-child(even) {
+    background:green;
+  }
