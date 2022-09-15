@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+   <body>
+      <script src="./main.js">
+      </script>
+      <head>
+         <title>HTML Forms</title>
+         <link rel="stylesheet" href="./style.css">
+         
+      </head>
+      <p>Add your details:</p>
+      <form>
+         <label for="mgr_name"><b>Manager name:</b></label><br>
+         <input type="text" placeholder="Enter Manager name" name="mgr_name" required>
+         <br>
+         <label for="grp_mail"><b>group email:</b></label><br>
+         <input type="email" name="grp_mail">
+         <br>
+         <label for="server_un"><b>Server username: </b></label><br>
+         <input type="text" id ="pat_check" name="server_un" pattern="(?=.*\d)(?=.*[A-Z])" title="Must contain at least one number and one uppercase letter" required> 
+         <p id="message" class="invalid"></p><br>
+         <label for="server_pwd" ><b>Server password:</b></label><br>
+         <input type="password" name="server_pwd" id="svr_pass">
+         <br>
+         <label for="conf_pwd"><b>confirm password:</b></label><br>
+         <input type="password" name="conf_pwd" id="conf_pass">
+         <br>
+         <label for="avengers"><b>Team lead:</b></label>      
+         <select name="team" id="avengers">
+            <option value="steve">Steve</option>
+            <option value="tony">Tony</option>
+            <option value="thor">Thor</option>
+            <option value="bruce">Bruce</option>
+          </select>
+          <br>
+
+         <div class="droptarget-div" ondrop="drop(event)" ondragover="allowDrop(event)" width="336" height="69">
+            <label id="dragtarget-div1" draggable="true" ondragstart="drag(event)">Tony</label>
+            <label id="dragtarget-div2" draggable="true" ondragstart="drag(event)">Steve</label>
+            <label id="dragtarget-div3" draggable="true" ondragstart="drag(event)">Bruce</label>
+            <label id="dragtarget-div4" draggable="true" ondragstart="drag(event)">Thor</label>
+         </div>
+         <div class="droptarget-div" ondrop="drop(event)" ondragover="allowDrop(event)" width="336" height="69">
+         </div>
+
+          <input type="submit" onclick="matchPassword()">
+          <!-- <button type="submit" form="form1" value="Submit">Submit</button> -->
+      </form>
+   </body>
+</html>
+
+<script >
+   var myInput = document.getElementById("pat_check");
+   var capital = document.getElementById("capital");
+   var number = document.getElementById("number");
+
+   function allowDrop(ev) {
+   ev.preventDefault();
+   }
+
+   function drag(ev) {
+   ev.dataTransfer.setData("text", ev.target.id);
+   }
+
+   function drop(ev) {
+   ev.preventDefault();
+   var data = ev.dataTransfer.getData("text");
+   ev.target.appendChild(document.getElementById(data));
+   }
+
+   function matchPassword() {  
+   var pw1 = document.getElementById("svr_pass");  
+   var pw2 = document.getElementById("conf_pass");  
+   if(pw1 != pw2)  
+   {   
+      alert("Passwords did not match");  
+   } else {  
+      alert("Password created successfully");  
+   }  
+   }  
+
+   myInput.onfocus = function() {
+     document.getElementById("message").style.display = "block";
+   }
+
+   myInput.onblur = function() {
+     document.getElementById("message").style.display = "none";
+   }
+   
+   // When the user starts to type something inside the password field
+   myInput.onkeyup = function() {
+     // Validate capital letters
+     var upperCaseLetters = /[A-Z]/g;
+     if(myInput.value.match(upperCaseLetters)) {
+      message.classList.remove("invalid");
+      message.classList.add("valid");
+     } else {
+      message.classList.remove("valid");
+      message.classList.add("invalid");
+     }
+   
+     // Validate numbers
+     var numbers = /[0-9]/g;
+     if(myInput.value.match(numbers)) {
+      message.classList.remove("invalid");
+      message.classList.add("valid");
+     } else {
+      message.classList.remove("valid");
+      message.classList.add("invalid");
+     }
+   }
+   </script>
+   

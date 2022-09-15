@@ -1,0 +1,15 @@
+.valid:before {
+    position: relative;
+    content: "valid";
+  }
+.invalid:before {
+    position: relative;
+    content: "invalid";
+  }
+
+.droptarget-div {
+ width: 350px;
+ height: 70px;
+ padding: 10px;
+ border: 1px solid #aaaaaa;
+ }
